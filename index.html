@@ -6,7 +6,27 @@
 <title>پرایس مانی</title>
 
 <style>
+/* بخش کارت های آموزشی */
 
+.courses{
+    display:flex;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    flex:1;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+/* وقتی موس روی کارت میره */
+
+.card:hover{
+    transform:translateY(-10px);
+}
 
 
 body{
@@ -19,7 +39,7 @@ margin:0;
 .navbar{
     background:#111;
     padding:15px;
-    text-align:center;
+    text-align:right;
 }
 .navbar a{
     color:white;
@@ -100,13 +120,26 @@ margin:0;
 <!-- مهارت‌ها -->
 <div class="section">
 
-<h2>آموزش‌های من</h2>
+    <h2>آموزش‌ها</h2>
 
-<ul>
-<li>Price Action</li>
-<li>Smart Money</li>
-<li>Price Money</li>
-</ul>
+    <div class="courses">
+
+        <div class="card">
+            <h3>Price Action</h3>
+            <p>آموزش پرایس اکشن به سبک پورصمدی</p>
+        </div>
+
+        <div class="card">
+            <h3>Smart Money</h3>
+            <p>آموزش اسمارت مانی به سبک محمد عباسی</p>
+        </div>
+
+        <div class="card">
+            <h3>Price Money</h3>
+            <p>ترکیب شخصی کوروش از دو سبک</p>
+        </div>
+
+    </div>
 
 </div>
 
