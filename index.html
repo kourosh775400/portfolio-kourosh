@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>واکنش پول هوشمند</title>
+<title>پرایس مانی</title>
 
 <style>
 
@@ -61,8 +61,9 @@ body{
 
 /* کارت های آموزشی */
 .courses{
-    display:flex;
+     display:flex;
     gap:20px;
+    flex-wrap:wrap;
 }
 
 .card{
@@ -81,6 +82,30 @@ body{
     text-decoration:none;
     color:inherit;
     flex:1;
+}
+.footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+.trade-card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
+max-width:700px;
+margin:20px auto;
+}
+
+.trade-card img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+
 
 }
 
@@ -105,7 +130,7 @@ body{
 <!-- تیتر اصلی -->
 <div class="hero-text">
 
-    <h1>price money</h1>
+    <h1>پرایس مانی</h1>
 
     <p>
     سبک پیشرفته تلفیقی از اسمارت مانی و پرایس اکشن
@@ -159,18 +184,7 @@ body{
     </div>
 </a>
 
-</div>
-
-
-      <a href="price-action.html" class="card-link">
-
-   <a href="smart-money.html" class="card-link">
-
-<a href="price-money.html" class="card-link">
-
-    <a href="price-money.html" class="card-link">
-
-  <a href="capital-management.html" class="card-link">
+<a href="capital-management.html" class="card-link">
     <div class="card">
         <h3>Capital Management And Control</h3>
         <p>مدیریت سرمایه و کنترل</p>
@@ -185,7 +199,31 @@ body{
 
     </div>
 
+
 </div>
+
+<div class="section">
+
+<h2>نمونه معاملات</h2>
+
+<div class="trade-card">
+
+<img src="trade1.jpg" alt="Trade Setup">
+
+<h3>XAUUSD Buy</h3>
+
+<p><strong>ستاپ:</strong> برگشت قیمت از ناحیه تقاضا</p>
+
+<p><strong>ورود:</strong> 3350</p>
+
+<p><strong>حد ضرر:</strong> 3340</p>
+
+<p><strong>تارگت:</strong> 3380</p>
+
+</div>
+
+</div>
+
 
 <!-- تماس -->
 <div class="section" id="contact">
@@ -195,9 +233,19 @@ body{
     <p>
     ایمیل: korosh.saheli90@email.com
     </p>
+</div>
+
+<div class="footer">
+
+<p>© 2026 Price Money | Designed By Kourosh</p>
 
 </div>
 
 </body>
 
 </html>
+
+
+
+
+
