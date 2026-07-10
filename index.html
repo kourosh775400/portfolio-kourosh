@@ -1,267 +1,444 @@
+```html
 <!DOCTYPE html>
-<html lang="fa">
-
+<html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>Price Money</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Price Money</title>
 
-<style>
+  <style>
+    *{
+      box-sizing:border-box;
+    }
 
-.hero-overlay{
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-color:white;
-background:rgba(0,0,0,0.4);
-}
+    body{
+      margin:0;
+      font-family:Tahoma, sans-serif;
+      background:#40a157;
+      direction:rtl;
+      color:#111827;
+      line-height:1.8;
+    }
 
-.stats{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
+    /* ===== NAVBAR ===== */
+    .navbar{
+      background:#40a15c;
+      padding:18px 20px;
+      text-align:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 4px 12px rgba(0,0,0,0.12);
+    }
 
-.stat-box{
-background:white;
-width:180px;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
+    .navbar a{
+      color:white;
+      margin:0 12px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.2s;
+    }
 
-.course-img{
-width:100%;
-height:150px;
-object-fit:cover;
-border-radius:10px;
-margin-bottom:10px;
-}
+    .navbar a:hover{
+      opacity:0.85;
+    }
 
-.about-img{
-width:250px;
-border-radius:20px;
-margin-bottom:20px;
-}
+    /* ===== BANNER ===== */
+    .header{
+      background-image:url('forex.png');
+      background-size:cover;
+      background-position:center;
+      height:450px;
+      border-bottom:5px solid white;
+    }
 
-.vip-btn{
-background:#f59e0b;
-color:white;
-border:none;
-padding:15px 30px;
-border-radius:10px;
-cursor:pointer;
-font-size:18px;
-}
+    /* ===== HERO ===== */
+    .hero-text{
+      text-align:center;
+      padding:30px 20px 10px;
+      color:#ffffff;
+    }
 
-.telegram-btn{
-display:inline-block;
-background:#0088cc;
-color:white;
-padding:15px 25px;
-border-radius:10px;
-text-decoration:none;
-}
+    .hero-text h1{
+      font-size:56px;
+      margin:0 0 12px;
+    }
 
-</style>
+    .hero-text p{
+      font-size:24px;
+      margin:0;
+    }
 
+    /* ===== GENERAL SECTION ===== */
+    .section{
+      background:white;
+      width:min(1100px, 90%);
+      margin:24px auto;
+      padding:28px;
+      border-radius:18px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.12);
+      text-align:center;
+    }
+
+    .section h2{
+      margin-top:0;
+      margin-bottom:18px;
+      color:#111827;
+    }
+
+    /* ===== STATS ===== */
+    .stats{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:20px;
+    }
+
+    .stat-box{
+      background:#ffffff;
+      width:180px;
+      padding:20px;
+      border-radius:15px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .stat-box h3{
+      font-size:30px;
+      margin:0 0 8px;
+      color:#16a34a;
+    }
+
+    .stat-box p{
+      margin:0;
+      color:#374151;
+    }
+
+    /* ===== COURSES ===== */
+    .courses{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .card-link{
+      text-decoration:none;
+      color:inherit;
+      flex:1;
+      min-width:220px;
+      max-width:320px;
+    }
+
+    /* ===== CARD ===== */
+    .card{
+      background:white;
+      height:100%;
+      padding:24px;
+      border-radius:16px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.15);
+      transition:0.3s;
+      text-align:center;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      color:#111827;
+    }
+
+    .card p{
+      font-size:14px;
+      opacity:0.85;
+      margin:0;
+      color:#374151;
+    }
+
+    /* ===== ICON CARDS ===== */
+    .cards-container{
+      width:min(1100px, 90%);
+      margin:24px auto;
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .cards-container .card{
+      width:240px;
+    }
+
+    .card-icon{
+      width:50px;
+      height:50px;
+      object-fit:contain;
+      display:block;
+      margin:0 auto 12px;
+    }
+
+    /* ===== TRADE CARD ===== */
+    .trade-card{
+      background:white;
+      padding:20px;
+      border-radius:15px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.15);
+      max-width:700px;
+      margin:20px auto 0;
+      text-align:right;
+    }
+
+    .trade-card img{
+      width:100%;
+      border-radius:10px;
+      margin-bottom:15px;
+      display:block;
+    }
+
+    .trade-card h3{
+      margin-top:0;
+      text-align:center;
+    }
+
+    /* ===== TELEGRAM BUTTON ===== */
+    .telegram-btn{
+      display:inline-block;
+      background:#0088cc;
+      color:white;
+      padding:14px 28px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.2s;
+    }
+
+    .telegram-btn:hover{
+      transform:translateY(-2px);
+      opacity:0.95;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer{
+      background:#0f172a;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:40px;
+    }
+
+    .footer p{
+      margin:0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:768px){
+      .hero-text h1{
+        font-size:40px;
+      }
+
+      .hero-text p{
+        font-size:18px;
+      }
+
+      .header{
+        height:300px;
+      }
+
+      .section{
+        padding:22px 16px;
+      }
+
+      .card-link{
+        max-width:100%;
+      }
+
+      .cards-container .card{
+        width:100%;
+        max-width:320px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<body>
-
-<div class="navbar">
+  <!-- NAVBAR -->
+  <div class="navbar">
     <a href="#about">درباره من</a>
-    <a href="#stats">آمار</a>
     <a href="#courses">آموزش‌ها</a>
-    <a href="#trades">معاملات</a>
+    <a href="#trade">معاملات برتر</a>
     <a href="#contact">تماس</a>
-</div>
+  </div>
 
-<!-- HERO -->
-<div class="header">
-    <div class="hero-overlay">
-        <h1>PRICE MONEY</h1>
-        <p>سبک اختصاصی تلفیق اسمارت مانی و پرایس اکشن</p>
+  <!-- BANNER -->
+  <div class="header"></div>
+
+  <!-- HERO -->
+  <div class="hero-text">
+    <h1>Price Money</h1>
+    <p>سبک پیشرفته تلفیقی از اسمارت مانی و پرایس اکشن</p>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section" id="about">
+    <h2>درباره من</h2>
+    <p>
+      سلام، من کوروش عطار هستم. در Price Money تلاش می‌کنم مفاهیم اسمارت مانی،
+      پرایس اکشن، روان‌شناسی معامله‌گری و مدیریت سرمایه را به زبان ساده و کاربردی آموزش بدهم.
+    </p>
+  </div>
+
+  <!-- STATS -->
+  <div class="section">
+    <h2>آمار عملکرد</h2>
+
+    <div class="stats">
+      <div class="stat-box">
+        <h3>500+</h3>
+        <p>دانشجو</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>78%</h3>
+        <p>وین ریت</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>6</h3>
+        <p>دوره آموزشی</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>24/7</h3>
+        <p>پشتیبانی</p>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- STATS -->
-<div class="section" id="stats">
+  <!-- COURSES -->
+  <div class="section" id="courses">
+    <h2>آموزش‌ها</h2>
 
-<h2>آمار عملکرد</h2>
+    <div class="courses">
 
-<div class="stats">
+      <a href="price-action.html" class="card-link">
+        <div class="card">
+          <h3>Price Action</h3>
+          <p>آموزش پرایس اکشن به سبک ساده، روان و کاربردی</p>
+        </div>
+      </a>
 
-<div class="stat-box">
-<h3>500+</h3>
-<p>دانشجو</p>
-</div>
+      <a href="smart-money.html" class="card-link">
+        <div class="card">
+          <h3>Smart Money</h3>
+          <p>آموزش اسمارت مانی با تمرکز بر ساختار بازار و نقدینگی</p>
+        </div>
+      </a>
 
-<div class="stat-box">
-<h3>78%</h3>
-<p>وین ریت</p>
-</div>
+      <a href="price-money.html" class="card-link">
+        <div class="card">
+          <h3>Price Money</h3>
+          <p>ترکیب اختصاصی کوروش از اسمارت مانی و پرایس اکشن</p>
+        </div>
+      </a>
 
-<div class="stat-box">
-<h3>6</h3>
-<p>دوره آموزشی</p>
-</div>
+      <a href="psychology.html" class="card-link">
+        <div class="card">
+          <h3>Trading Psychology</h3>
+          <p>مدیریت ذهن، احساسات و رفتار در معامله‌گری</p>
+        </div>
+      </a>
 
-<div class="stat-box">
-<h3>24/7</h3>
-<p>پشتیبانی</p>
-</div>
+      <a href="capital-management.html" class="card-link">
+        <div class="card">
+          <h3>Capital Management</h3>
+          <p>مدیریت سرمایه، کنترل ریسک و حفظ بقا در بازار</p>
+        </div>
+      </a>
 
-</div>
+      <a href="robot-trader.html" class="card-link">
+        <div class="card">
+          <h3>Robot Mode</h3>
+          <p>تبدیل ذهن معامله‌گر به سیستم منظم، مکانیکی و قانون‌مند</p>
+        </div>
+      </a>
 
-</div>
+    </div>
+  </div>
 
-<!-- ABOUT -->
-<div class="section" id="about">
+  <!-- ICON CARDS -->
+  <div class="cards-container">
 
-<h2>درباره من</h2>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2331/2331944.png" alt="Price Action" class="card-icon">
+      <h3>Price Action</h3>
+      <p>درک رفتار قیمت و واکنش بازار در نواحی مهم</p>
+    </div>
 
-<img src="about.jpg" class="about-img">
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2331/2331950.png" alt="Smart Money" class="card-icon">
+      <h3>Smart Money</h3>
+      <p>ردیابی پول هوشمند، نقدینگی و ساختار بازار</p>
+    </div>
 
-<p>
-من کوروش هستم و اینجا تجربه چندین سال معامله‌گری را
-به زبان ساده آموزش می‌دهم.
-</p>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Psychology" class="card-icon">
+      <h3>Psychology</h3>
+      <p>کنترل ذهن، احساسات و تصمیم‌گیری در لحظه معامله</p>
+    </div>
 
-</div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Robot Mode" class="card-icon">
+      <h3>Robot Mode</h3>
+      <p>ساخت سیستم معاملاتی منظم و اجرای بی‌احساس پلن</p>
+    </div>
 
-<!-- COURSES -->
-<div class="section" id="courses">
+  </div>
 
-<h2>آموزش‌ها</h2>
+  <!-- TRADE SAMPLE -->
+  <div class="section" id="trade">
+    <h2>معاملات برتر</h2>
 
-<div class="courses">
+    <div class="trade-card">
+      <img src="xxa.png" alt="Gold Trade">
 
-<div class="card">
-<img src="price-action.jpg" class="course-img">
-<h3>Price Action</h3>
-<p>رفتار قیمت بدون اندیکاتور</p>
-</div>
+      <h3>XAUUSD BUY</h3>
 
-<div class="card">
-<img src="smart-money.jpg" class="course-img">
-<h3>Smart Money</h3>
-<p>ردیابی پول هوشمند</p>
-</div>
+      <p><strong>ستاپ:</strong> برگشت از ناحیه تقاضا</p>
+      <p><strong>ورود:</strong> 4250</p>
+      <p><strong>حد ضرر:</strong> 4200</p>
+      <p><strong>تارگت:</strong> 4350</p>
+    </div>
+  </div>
 
-<div class="card">
-<img src="price-money.jpg" class="course-img">
-<h3>Price Money</h3>
-<p>سبک اختصاصی کوروش</p>
-</div>
+  <!-- TESTIMONIALS -->
+  <div class="section">
+    <h2>نظرات کاربران</h2>
 
-<div class="card">
-<img src="psychology.jpg" class="course-img">
-<h3>Trading Psychology</h3>
-<p>کنترل ذهن معامله‌گر</p>
-</div>
+    <p>⭐⭐⭐⭐⭐</p>
+    <p>آموزش‌ها بسیار ساده و کاربردی هستند.</p>
 
-<div class="card">
-<img src="capital.jpg" class="course-img">
-<h3>Capital Management</h3>
-<p>مدیریت سرمایه</p>
-</div>
+    <hr>
 
-<div class="card">
-<img src="robot.jpg" class="course-img">
-<h3>Robot Mode</h3>
-<p>تبدیل ذهن به سیستم</p>
-</div>
+    <p>⭐⭐⭐⭐⭐</p>
+    <p>مدیریت سرمایه باعث شد ضررهای من خیلی کمتر شود.</p>
+  </div>
 
-</div>
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <h2>کانال تلگرام</h2>
 
-</div>
+    <a href="https://t.me/USERNAME" class="telegram-btn" target="_blank">
+      عضویت در کانال
+    </a>
+  </div>
 
-<!-- TRADE -->
-<div class="section" id="trades">
-
-<h2>معاملات برتر</h2>
-
-<div class="trade-card">
-
-<img src="trade1.png">
-
-<h3>XAUUSD BUY</h3>
-
-<p>ستاپ: برگشت از ناحیه تقاضا</p>
-
-<p>ورود: 4250</p>
-
-<p>حد ضرر: 4200</p>
-
-<p>تارگت: 4350</p>
-
-</div>
-
-</div>
-
-<!-- REVIEWS -->
-<div class="section">
-
-<h2>نظرات کاربران</h2>
-
-<p>⭐⭐⭐⭐⭐</p>
-<p>آموزش‌ها بسیار کاربردی و ساده هستند.</p>
-
-<hr>
-
-<p>⭐⭐⭐⭐⭐</p>
-<p>وین ریت من بعد از مدیریت سرمایه خیلی بهتر شد.</p>
-
-</div>
-
-<!-- VIP -->
-<div class="section">
-
-<h2>VIP CLUB</h2>
-
-<p>
-دسترسی به تحلیل‌های اختصاصی و ستاپ‌های معاملاتی
-</p>
-
-<button class="vip-btn">
-عضویت ویژه
-</button>
-
-</div>
-
-<!-- TELEGRAM -->
-<div class="section" id="contact">
-
-<h2>کانال تلگرام</h2>
-
-<a href="#" class="telegram-btn">
-عضویت در کانال
-</a>
-
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-
-<h3>Price Money</h3>
-
-<p>
-© 2026 All Rights Reserved
-</p>
-
-</div>
-
-</body>
-
-<!-- FOOTER -->
-<div class="footer">
-<p>© 2026 Price Money | Designed By Kourosh</p>
-</div>
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>© 2026 Price Money | Designed By Kourosh</p>
+  </div>
 
 </body>
 </html>
+```
